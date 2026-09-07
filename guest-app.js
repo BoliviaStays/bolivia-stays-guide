@@ -61,9 +61,10 @@
     document.querySelector('.main-nav').hidden = false;
     document.querySelector('.mobile-nav').hidden = false;
     const p = base.properties[property];
-    const hiddenFeatures = property === '7e' ? [0, 1, 2, 4, 6] : [0, 1, 2, 6, 7];
+    const hiddenFeatures = property === '7e' ? [0, 1, 2, 4, 5, 6] : [0, 1, 2, 4, 6, 7];
     const features = p.features.filter((entry, index) => !hiddenFeatures.includes(index));
     const rules = base.rules.items.map(([title,body],i) => [title, i === 1 && property === '11f' ? ui.noSmoking : body]);
+    const ruleIcons = ['🎉', '🚭', '🔇', '🐾', '👥', '🌿'];
     document.querySelector('main').innerHTML = `
       <section class="welcome" id="top"><p class="eyebrow">${esc(p.floor)} · Sky Recoleta</p><h1>${esc(ui.welcome)}<br><span>${esc(p.name)}</span></h1>
         <div class="quick-actions">${[['wifi','Wi-Fi'],['stay',ui.equipment],['help',ui.contact],['checkout',ui.checkout]].map(([id,label],i) => `<a href="#${id}"><span aria-hidden="true">${['⌁','⌂','✉','→'][i]}</span>${esc(label)}</a>`).join('')}</div>
@@ -77,7 +78,7 @@
         ${detail(ui.visitorsQuestion, ui.visitorsAnswer)}
       </section>
       <section class="section" id="nearby"><div class="section-heading"><p class="eyebrow">Cochabamba</p><h2>${esc(ui.nearbyTitle)}</h2><p>${esc(ui.nearbyBody)}</p></div><div id="place-filters" class="place-filters" role="group" aria-label="${esc(ui.categories)}"></div><div class="places-grid" id="places-grid"></div><button class="button secondary more-button" id="show-more" type="button"></button></section>
-      <section class="section rules" id="rules"><div class="section-heading"><h2>${esc(base.rules.title)}</h2><p>${esc(base.rules.body)}</p></div><div class="rules-grid">${rules.map(([title,body]) => `<div><h3>${esc(title)}</h3><p>${esc(body)}</p></div>`).join('')}</div></section>
+      <section class="section rules" id="rules"><div class="section-heading"><h2>${esc(base.rules.title)}</h2><p>${esc(base.rules.body)}</p></div><div class="rules-grid">${rules.map(([title,body],i) => `<div class="rule-card"><span class="rule-icon" aria-hidden="true">${ruleIcons[i]}</span><div><h3>${esc(title)}</h3><p>${esc(body)}</p></div></div>`).join('')}</div></section>
       <section class="section" id="checkout"><div class="section-heading"><p class="eyebrow">${esc(ui.checkout)}</p><h2>${esc(ui.beforeLeaving)} <span class="time">11:00</span></h2></div><ul class="checkout-list">${ui.checkoutItems.map(text => `<li>${esc(text)}</li>`).join('')}${property === '11f' ? `<li>${esc(p.notice)}</li>` : ''}</ul>${detail(base.faq.items[1][0],base.faq.items[1][1])}${detail(base.faq.items[2][0],base.faq.items[2][1])}<aside class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><h3>${esc(ui.reviewTitle)}</h3><p>${esc(ui.reviewBody)}</p>${external('https://www.airbnb.com/trips',ui.reviewButton,'button')}<small>${esc(ui.reviewNote)}</small></aside></section>
       <section class="section help" id="help"><div class="section-heading"><p class="eyebrow">${esc(ui.help)}</p><h2>${esc(ui.needHelp)}</h2><p>${esc(ui.helpBody)}</p>${external('https://www.airbnb.com/trips',ui.contact,'button')}<small>${esc(ui.airbnbHint)}</small></div>${detail(ui.report,base.faq.items[4][1])}${property === '11f' ? detail(base.faq.items[3][0],base.faq.items[3][1]) : ''}<details class="emergency"><summary>${esc(ui.emergency)}</summary><div class="contact-list">${base.contacts.slice(1).map(([name,description,value,href]) => `<a href="${href}"><strong>${esc(name)}</strong><span>${value}</span></a>`).join('')}</div></details></section>`;
     bindChoices(); renderPlaces();
