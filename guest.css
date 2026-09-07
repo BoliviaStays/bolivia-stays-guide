@@ -39,6 +39,7 @@ h2 { font-size:clamp(1.5rem,2.4vw,2rem); }
 .place-card { padding:0; overflow:hidden; min-height:0; }
 .place-photo { position:relative; aspect-ratio:1.6; background:#eee; overflow:hidden; }
 .place-photo img { display:block; width:100%; height:100%; object-fit:cover; }
+.place-photo img.contain { object-fit:contain; padding:16px; background:white; }
 .place-photo > span { position:absolute; bottom:8px; left:8px; background:rgba(255,255,255,.95); padding:2px 8px; border-radius:6px; font-size:.75rem !important; color:#444 !important; }
 .place-body { padding:20px; flex:1; display:flex; flex-direction:column; }
 .category { font-size:.875rem; color:#9c1747; }

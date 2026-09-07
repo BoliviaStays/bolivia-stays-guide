@@ -28,7 +28,8 @@
     document.getElementById('places-grid').innerHTML = visible.map(p => {
       const photo = window.PLACE_PHOTOS?.[p.photo || p.category];
       const name = typeof p.name === 'string' ? p.name : p.name[language];
-      return `<article class="place-card">${photo ? `<div class="place-photo"><img src="${esc(photo.url)}" alt="${esc(photo.real ? name : ui.illustrative)}" loading="lazy" width="640" height="400">${photo.real ? '' : `<span>${esc(ui.illustrative)}</span>`}</div>` : ''}<div class="place-body"><span class="category">${esc(ui.filters[p.category])}</span><h3>${esc(name)}</h3><p>${esc(p.description[language])}</p><div class="place-links">${external(maps(p.query), p.search ? ui.findMaps : ui.viewMaps)}${p.source ? external(p.source, ui.source, 'source-link') : ''}</div></div></article>`;
+      const mapUrl = p.mapUrl || maps(p.query);
+      return `<article class="place-card">${photo ? `<div class="place-photo"><img class="${photo.fit === 'contain' ? 'contain' : ''}" src="${esc(photo.url)}" alt="${esc(photo.real ? name : ui.illustrative)}" loading="lazy" width="640" height="400">${photo.real ? '' : `<span>${esc(ui.illustrative)}</span>`}</div>` : ''}<div class="place-body"><span class="category">${esc(ui.filters[p.category])}</span><h3>${esc(name)}</h3><p>${esc(p.description[language])}</p><div class="place-links">${external(mapUrl, p.search ? ui.findMaps : ui.viewMaps)}${p.source ? external(p.source, ui.source, 'source-link') : ''}</div></div></article>`;
     }).join('');
     document.getElementById('show-more').hidden = entries.length <= 6;
     document.getElementById('show-more').textContent = expanded ? ui.less : `${ui.more} (${entries.length - 6})`;
@@ -60,7 +61,8 @@
     document.querySelector('.main-nav').hidden = false;
     document.querySelector('.mobile-nav').hidden = false;
     const p = base.properties[property];
-    const features = p.features.filter(([title],i) => i !== 0 && i !== 1 && !(property === '11f' && i >= 6));
+    const hiddenFeatures = property === '7e' ? [0, 1, 2, 4, 6] : [0, 1, 2, 6, 7];
+    const features = p.features.filter((entry, index) => !hiddenFeatures.includes(index));
     const rules = base.rules.items.map(([title,body],i) => [title, i === 1 && property === '11f' ? ui.noSmoking : body]);
     document.querySelector('main').innerHTML = `
       <section class="welcome" id="top"><p class="eyebrow">${esc(p.floor)} · Sky Recoleta</p><h1>${esc(ui.welcome)}<br><span>${esc(p.name)}</span></h1>
