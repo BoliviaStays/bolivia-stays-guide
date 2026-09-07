@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ff385c" />
+    <meta name="description" content="Guía para huéspedes de Bolivia Stays en Sky Recoleta, Cochabamba." />
+    <title>Bolivia Stays · Guest Guide</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="content.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="Bolivia Stays">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3.5 4.5 13v14.5h23V13L16 3.5Z" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"/><path d="M11 27.5v-8h10v8M10.5 13.2h11" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/></svg></span>
+          <span>Bolivia Stays</span>
+        </a>
+        <nav class="main-nav" aria-label="Principal">
+          <a href="#stay" data-i18n="nav.stay">Tu estadía</a><a href="#essentials" data-i18n="nav.essentials">Información</a><a href="#nearby" data-i18n="nav.nearby">Cerca</a><a href="#help" data-i18n="nav.help">Ayuda</a>
+        </nav>
+        <div class="language-switcher" role="group" aria-label="Idioma">
+          <button class="lang-btn is-active" type="button" data-lang="es" aria-pressed="true">ES</button><button class="lang-btn" type="button" data-lang="en" aria-pressed="false">EN</button><button class="lang-btn" type="button" data-lang="fr" aria-pressed="false">FR</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Sky Recoleta · Cochabamba</p>
+          <h1 data-i18n="hero.title">Todo lo que necesitas para una estadía tranquila.</h1>
+          <p class="hero-text" data-i18n="hero.body">Consulta el acceso, las reglas, el parqueo y nuestras recomendaciones locales desde un solo lugar.</p>
+          <div class="quick-facts" aria-label="Horarios principales">
+            <div><span data-i18n="hero.checkin">Check-in</span><strong>15:00</strong></div>
+            <div><span data-i18n="hero.checkout">Check-out</span><strong>11:00</strong></div>
+            <a href="https://www.google.com/maps/search/?api=1&query=Edificio+Sky+Recoleta+Avenida+Uyuni+919+Cochabamba" target="_blank" rel="noopener"><span data-i18n="hero.address">Dirección</span><strong>Av. Uyuni 919</strong></a>
+          </div>
+        </div>
+        <div class="hero-card" aria-label="Ubicación">
+          <div class="map-orbit" aria-hidden="true"><span class="orbit orbit-one"></span><span class="orbit orbit-two"></span><span class="location-pin"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.3 7-12a7 7 0 1 0-14 0c0 6.7 7 12 7 12Z" fill="currentColor"/><circle cx="12" cy="9" r="2.6" fill="white"/></svg></span></div>
+          <p data-i18n="hero.zone">Recoleta, una zona caminable con restaurantes, cafés y servicios.</p>
+          <a class="text-link" href="https://www.google.com/maps/search/?api=1&query=Edificio+Sky+Recoleta+Avenida+Uyuni+919+Cochabamba" target="_blank" rel="noopener" data-i18n="actions.openMap">Abrir en Google Maps</a>
+        </div>
+      </section>
+
+      <section class="section" id="stay">
+        <div class="section-heading"><div><p class="eyebrow" data-i18n="stay.eyebrow">Elige tu departamento</p><h2 data-i18n="stay.title">Información de tu alojamiento</h2></div><p data-i18n="stay.body">Selecciona el departamento que aparece en tu reserva.</p></div>
+        <div class="property-tabs" role="tablist" aria-label="Departamentos">
+          <button id="tab-7e" class="property-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="property-panel" data-property="7e"><span class="tab-floor">7E</span><span><strong>Memories Apartment</strong><small data-i18n="properties.7e.short">2 dormitorios · hasta 4 huéspedes</small></span></button>
+          <button id="tab-11f" class="property-tab" type="button" role="tab" aria-selected="false" aria-controls="property-panel" data-property="11f"><span class="tab-floor">11F</span><span><strong>Renoir's Apartment</strong><small data-i18n="properties.11f.short">1 dormitorio · hasta 3 huéspedes</small></span></button>
+        </div>
+        <article id="property-panel" class="property-panel" role="tabpanel" aria-labelledby="tab-7e">
+          <div class="property-summary"><div><p class="eyebrow" id="property-floor"></p><h3 id="property-name"></h3><p id="property-description"></p></div><div class="capacity-badge"><span id="property-capacity"></span><small data-i18n="stay.maxGuests">capacidad máxima</small></div></div>
+          <div class="feature-grid" id="property-features"></div><div class="notice-card" id="property-notice"></div>
+        </article>
+      </section>
+
+      <section class="section" id="essentials">
+        <div class="section-heading"><div><p class="eyebrow" data-i18n="essentials.eyebrow">Información esencial</p><h2 data-i18n="essentials.title">Antes y durante tu estadía</h2></div></div>
+        <div class="info-grid" id="essentials-grid"></div>
+      </section>
+
+      <section class="rules-section">
+        <div class="section-heading compact"><div><p class="eyebrow" data-i18n="rules.eyebrow">Convivencia</p><h2 data-i18n="rules.title">Reglas importantes</h2></div><p data-i18n="rules.body">Gracias por ayudarnos a cuidar el departamento y respetar a los vecinos.</p></div>
+        <div class="rules-grid" id="rules-grid"></div>
+      </section>
+
+      <section class="section" id="nearby">
+        <div class="section-heading"><div><p class="eyebrow" data-i18n="nearby.eyebrow">Explora Recoleta</p><h2 data-i18n="nearby.title">Lugares cercanos</h2></div><p data-i18n="nearby.body">Opciones próximas para comer, pasear y conocer Cochabamba. Confirma horarios antes de salir.</p></div>
+        <div class="place-filters" id="place-filters" role="group" aria-label="Categorías"></div><div class="places-grid" id="places-grid"></div>
+        <div class="map-frame"><iframe title="Mapa de Sky Recoleta" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Edificio%20Sky%20Recoleta%20Avenida%20Uyuni%20919%20Cochabamba&output=embed"></iframe></div>
+      </section>
+
+      <section class="help-section" id="help">
+        <div class="help-copy"><p class="eyebrow" data-i18n="help.eyebrow">Ayuda y emergencias</p><h2 data-i18n="help.title">Estamos aquí para ayudarte</h2><p data-i18n="help.body">Para consultas del alojamiento, escribe primero al administrador por Airbnb. Usa los números de emergencia solamente cuando corresponda.</p><a class="primary-button" href="https://www.airbnb.com/trips" target="_blank" rel="noopener" data-i18n="actions.openAirbnb">Abrir Airbnb</a></div>
+        <div class="contact-list" id="contact-list"></div>
+      </section>
+
+      <section class="section faq-section"><div class="section-heading compact"><div><p class="eyebrow">FAQ</p><h2 data-i18n="faq.title">Preguntas frecuentes</h2></div></div><div class="faq-list" id="faq-list"></div></section>
+    </main>
+
+    <footer>
+      <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3.5 4.5 13v14.5h23V13L16 3.5Z" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"/><path d="M11 27.5v-8h10v8M10.5 13.2h11" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/></svg></span><span>Bolivia Stays</span></a>
+      <p data-i18n="footer.note">Guía para huéspedes · Sky Recoleta, Cochabamba</p><p class="privacy-note" data-i18n="footer.privacy">Los códigos de acceso se envían de forma privada.</p>
+    </footer>
+
+    <nav class="mobile-nav" aria-label="Navegación móvil"><a href="#stay"><span aria-hidden="true">⌂</span><small data-i18n="nav.stay">Tu estadía</small></a><a href="#essentials"><span aria-hidden="true">i</span><small data-i18n="nav.essentials">Información</small></a><a href="#nearby"><span aria-hidden="true">⌖</span><small data-i18n="nav.nearby">Cerca</small></a><a href="#help"><span aria-hidden="true">+</span><small data-i18n="nav.help">Ayuda</small></a></nav>
+  </body>
+</html>
