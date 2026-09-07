@@ -66,7 +66,6 @@
     const rules = base.rules.items.map(([title,body],i) => [title, i === 1 && property === '11f' ? ui.noSmoking : body]);
     document.querySelector('main').innerHTML = `
       <section class="welcome" id="top"><p class="eyebrow">${esc(p.floor)} · Sky Recoleta</p><h1>${esc(ui.welcome)}<br><span>${esc(p.name)}</span></h1>
-        <details class="property-switch"><summary>${esc(ui.change)} · ${property.toUpperCase()}</summary><div class="property-choices">${choices}</div></details>
         <div class="quick-actions">${[['wifi','Wi-Fi'],['stay',ui.equipment],['help',ui.contact],['checkout',ui.checkout]].map(([id,label],i) => `<a href="#${id}"><span aria-hidden="true">${['⌁','⌂','✉','→'][i]}</span>${esc(label)}</a>`).join('')}</div>
         <div class="address-line">${external(maps('Edificio Sky Recoleta Avenida Uyuni 919 Cochabamba'), ui.returnHome)}<span>${esc(ui.checkout)} · 11:00</span></div>
       </section>
@@ -75,6 +74,7 @@
         <details class="instruction secondary-detail"><summary>${esc(ui.about)}</summary><p>${esc(p.features[0][1])} ${esc(p.capacity)}.</p></details>
         <details class="instruction secondary-detail"><summary>${esc(ui.arrival)}</summary><p>${esc(base.essentials.cards[0][1])}</p><p>${esc(base.essentials.cards[1][1])}</p><p>${esc(p.features[1][1])}</p><p>Check-in: 15:00. ${esc(base.faq.items[0][1])}</p></details>
         <details class="instruction secondary-detail"><summary>${esc(ui.parking)}</summary><p>${esc(ui.parkingBody)}</p><p>${esc(base.essentials.cards[2][1])}</p><p>${esc(base.essentials.cards[3][1])}</p></details>
+        ${detail(ui.visitorsQuestion, ui.visitorsAnswer)}
       </section>
       <section class="section" id="nearby"><div class="section-heading"><p class="eyebrow">Cochabamba</p><h2>${esc(ui.nearbyTitle)}</h2><p>${esc(ui.nearbyBody)}</p></div><div id="place-filters" class="place-filters" role="group" aria-label="${esc(ui.categories)}"></div><div class="places-grid" id="places-grid"></div><button class="button secondary more-button" id="show-more" type="button"></button></section>
       <section class="section rules" id="rules"><div class="section-heading"><h2>${esc(base.rules.title)}</h2><p>${esc(base.rules.body)}</p></div><div class="rules-grid">${rules.map(([title,body]) => `<div><h3>${esc(title)}</h3><p>${esc(body)}</p></div>`).join('')}</div></section>
