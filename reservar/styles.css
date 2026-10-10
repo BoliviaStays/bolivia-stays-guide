@@ -130,6 +130,8 @@ hr { margin: 36px 0; border: 0; border-top: 1px solid var(--line); }
 .discount-badge { padding: 5px 9px; border-radius: 999px; background: #e8f5ee; color: #0c714f; font-size: .76rem; font-weight: 850; }
 .price-breakdown { padding: 15px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .price-row { display: flex; justify-content: space-between; gap: 16px; margin: 8px 0; font-size: .9rem; }
+.price-row > span:first-child { min-width: 0; }
+.price-row > span:last-child { flex: 0 0 auto; white-space: nowrap; text-align: right; }
 .price-row.discount { color: #0c714f; }
 .price-row.total { margin-top: 14px; padding-top: 13px; border-top: 1px solid var(--line); font-size: 1rem; font-weight: 850; }
 .whatsapp-saving { margin-top: 13px; padding: 10px 12px; border: 1px solid #b9e5d1; border-radius: 12px; background: #f1fbf6; }
