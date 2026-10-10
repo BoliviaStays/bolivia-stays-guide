@@ -4,7 +4,7 @@
   const params = new URLSearchParams(location.search);
   const translations = {
     es: {
-      skip: "Saltar al contenido", stays: "Alojamientos", details: "Detalles", quote: "Cotizar", language: "Idioma", currency: "Moneda",
+      skip: "Saltar al contenido", stays: "Alojamientos", details: "Detalles", quote: "Cotizar", language: "Idioma", currency: "Moneda", home: "Bolivia Stays, inicio", navLabel: "Navegación principal", galleryLabel: "Galería del departamento", summary: "Resumen del alojamiento", bookingCalculator: "Cotizador de reserva", livingRoomAlt: "Sala luminosa del apartamento Renoir 11F", bedroomAlt: "Dormitorio principal del departamento Memories 7E",
       heroTitle: "Tu espacio en el corazón de la ciudad.", heroText: "Elige el departamento que mejor se adapte a tu viaje, revisa fechas y recibe una cotización clara al instante.", viewStays: "Ver alojamientos", photosLabel: "Fotografías de los departamentos", twoApartments: "2 departamentos", primeLocation: "Una ubicación privilegiada",
       chooseStay: "Elige tu estadía", twoWays: "Dos formas de sentirte en casa", bothIntro: "Ambos alojamientos están en Sky Recoleta, cerca de restaurantes, cafés y los principales puntos del norte de Cochabamba.", apartments: "Departamentos", share: "↗ Compartir",
       about: "Acerca de este alojamiento", offers: "Lo que ofrece este lugar", locationTitle: "Una ubicación práctica y segura", locationBody: "Av. Uyuni y Melchor Urquidi, a pasos del Boulevard, la Recoleta y la Av. Pando.",
@@ -18,7 +18,7 @@
       exchange: "Conversión referencial: 1 USD = Bs {rate}.", source: "Fuente: Banco Central de Bolivia ↗", cutDate: "Fecha de corte", lastCheck: "Última consulta", pending: "pendiente", directBooking: "Reserva directa"
     },
     en: {
-      skip: "Skip to content", stays: "Stays", details: "Details", quote: "Get a quote", language: "Language", currency: "Currency",
+      skip: "Skip to content", stays: "Stays", details: "Details", quote: "Get a quote", language: "Language", currency: "Currency", home: "Bolivia Stays, home", navLabel: "Main navigation", galleryLabel: "Apartment gallery", summary: "Property summary", bookingCalculator: "Booking calculator", livingRoomAlt: "Bright living room in Renoir 11F", bedroomAlt: "Main bedroom in Memories 7E",
       heroTitle: "Your place in the heart of the city.", heroText: "Choose the apartment that best fits your trip, check dates, and get a clear quote instantly.", viewStays: "View stays", photosLabel: "Apartment photos", twoApartments: "2 apartments", primeLocation: "A privileged location",
       chooseStay: "Choose your stay", twoWays: "Two ways to feel at home", bothIntro: "Both apartments are in Sky Recoleta, close to restaurants, cafés, and the main destinations in northern Cochabamba.", apartments: "Apartments", share: "↗ Share",
       about: "About this stay", offers: "What this place offers", locationTitle: "A convenient and safe location", locationBody: "Uyuni Ave. and Melchor Urquidi, steps from the Boulevard, Recoleta, and Pando Ave.",
@@ -32,7 +32,7 @@
       exchange: "Reference conversion: 1 USD = Bs {rate}.", source: "Source: Central Bank of Bolivia ↗", cutDate: "Rate date", lastCheck: "Last checked", pending: "pending", directBooking: "Direct booking"
     },
     pt: {
-      skip: "Pular para o conteúdo", stays: "Hospedagens", details: "Detalhes", quote: "Fazer cotação", language: "Idioma", currency: "Moeda",
+      skip: "Pular para o conteúdo", stays: "Hospedagens", details: "Detalhes", quote: "Fazer cotação", language: "Idioma", currency: "Moeda", home: "Bolivia Stays, início", navLabel: "Navegação principal", galleryLabel: "Galeria do apartamento", summary: "Resumo da hospedagem", bookingCalculator: "Calculadora de reserva", livingRoomAlt: "Sala iluminada do apartamento Renoir 11F", bedroomAlt: "Quarto principal do apartamento Memories 7E",
       heroTitle: "Seu espaço no coração da cidade.", heroText: "Escolha o apartamento ideal para sua viagem, consulte as datas e receba uma cotação clara na hora.", viewStays: "Ver hospedagens", photosLabel: "Fotos dos apartamentos", twoApartments: "2 apartamentos", primeLocation: "Uma localização privilegiada",
       chooseStay: "Escolha sua estadia", twoWays: "Duas formas de se sentir em casa", bothIntro: "Os dois apartamentos ficam no Sky Recoleta, perto de restaurantes, cafés e dos principais pontos da zona norte de Cochabamba.", apartments: "Apartamentos", share: "↗ Compartilhar",
       about: "Sobre esta hospedagem", offers: "O que este lugar oferece", locationTitle: "Uma localização prática e segura", locationBody: "Av. Uyuni e Melchor Urquidi, a poucos passos do Boulevard, da Recoleta e da Av. Pando.",
@@ -143,14 +143,17 @@
     const text = (selector, key) => { const element = document.querySelector(selector); if (element) element.textContent = t(key); };
     text(".skip-link", "skip");
     ["stays", "details", "quote"].forEach((key, index) => text(`.main-nav a:nth-child(${index + 1})`, key));
-    document.querySelector(".main-nav")?.setAttribute("aria-label", t("details"));
+    document.querySelector("header .brand")?.setAttribute("aria-label", t("home"));
+    document.querySelector(".main-nav")?.setAttribute("aria-label", t("navLabel"));
     document.querySelector(".currency-switcher")?.setAttribute("aria-label", t("currency"));
     document.querySelector(".language-switcher")?.setAttribute("aria-label", t("language"));
     text(".hero h1", "heroTitle"); text(".hero-text", "heroText"); text(".hero .button.primary", "viewStays");
     document.querySelector(".hero-collage")?.setAttribute("aria-label", t("photosLabel"));
+    const heroImages = document.querySelectorAll(".hero-collage img"); if (heroImages[0]) heroImages[0].alt = t("livingRoomAlt"); if (heroImages[1]) heroImages[1].alt = t("bedroomAlt");
     text(".hero-note strong", "twoApartments"); text(".hero-note span", "primeLocation");
     text("#alojamientos .eyebrow", "chooseStay"); text("#alojamientos h2", "twoWays"); text("#alojamientos .section-heading > p", "bothIntro");
     document.querySelector(".property-selector")?.setAttribute("aria-label", t("apartments"));
+    document.querySelector(".photo-mosaic")?.setAttribute("aria-label", t("galleryLabel")); document.querySelector(".fact-line")?.setAttribute("aria-label", t("summary")); document.querySelector(".booking-card")?.setAttribute("aria-label", t("bookingCalculator"));
     text(".share-link", "share"); text(".description-block h3", "about");
     text(".description-block + hr + section h3", "offers"); text(".location-card h3", "locationTitle"); text(".location-card p:not(.eyebrow)", "locationBody");
     text(".price-lead span", "perNight"); text(".currency-quick", "payBob");
