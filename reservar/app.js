@@ -13,6 +13,7 @@
     parking: params.get("parking") === "yes",
     checkin: validISO(params.get("checkin")) ? params.get("checkin") : null,
     checkout: validISO(params.get("checkout")) ? params.get("checkout") : null,
+    galleryOpen: params.get("gallery") === "open",
     selecting: "checkin",
     calendarMonth: firstOfMonth(validISO(params.get("checkin")) ? parseISO(params.get("checkin")) : new Date()),
     exchange: {
@@ -76,6 +77,7 @@
     renderProperty();
     renderQuote();
     updateURL(false);
+    if (state.galleryOpen && !galleryDialog.open) galleryDialog.showModal();
   }
 
   function renderCurrency() {
@@ -268,6 +270,7 @@
     url.searchParams.set("guests", String(state.guests));
     url.searchParams.set("parking", state.parking ? "yes" : "no");
     url.searchParams.set("currency", state.currency);
+    if (state.galleryOpen) url.searchParams.set("gallery", "open");
     return url.toString();
   }
 
@@ -400,7 +403,7 @@
     if (action === "close-calendar") calendarDialog.close();
     if (action === "calendar-prev") { const previous = addMonths(state.calendarMonth, -1); if (previous >= firstOfMonth(new Date())) state.calendarMonth = previous; renderCalendar(); }
     if (action === "calendar-next") { state.calendarMonth = addMonths(state.calendarMonth, 1); renderCalendar(); }
-    if (action === "open-gallery") galleryDialog.showModal();
+    if (action === "open-gallery") { state.galleryOpen = true; updateURL(false); galleryDialog.showModal(); }
     if (action === "close-gallery") galleryDialog.close();
     if (action === "share") shareQuote();
   });
@@ -412,6 +415,11 @@
 
   document.getElementById("parking").addEventListener("change", event => { state.parking = event.target.checked; renderQuote(); });
   [calendarDialog, galleryDialog].forEach(dialog => dialog.addEventListener("click", event => { if (event.target === dialog) dialog.close(); }));
+  galleryDialog.addEventListener("close", () => {
+    if (!state.galleryOpen) return;
+    state.galleryOpen = false;
+    updateURL(false);
+  });
 
   renderAll();
 })();
