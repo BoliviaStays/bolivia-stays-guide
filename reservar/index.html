@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ff385c">
+  <meta name="description" content="Cotiza tu estadía en Memories 7E o Renoir's 11F, en Sky Recoleta, Cochabamba.">
+  <title>Reserva directa · Bolivia Stays</title>
+  <link rel="preconnect" href="https://www.airbnb.com.bo">
+  <link rel="stylesheet" href="styles.css">
+  <script src="properties.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Bolivia Stays, inicio">
+        <span class="brand-mark" aria-hidden="true">⌂</span>
+        <span>Bolivia Stays</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#alojamientos">Alojamientos</a>
+        <a href="#detalles">Detalles</a>
+        <a href="#reservar">Cotizar</a>
+      </nav>
+      <div class="currency-switcher" role="group" aria-label="Moneda">
+        <button type="button" class="currency-btn is-active" data-currency="USD" aria-pressed="true">USD</button>
+        <button type="button" class="currency-btn" data-currency="BOB" aria-pressed="false">Bs</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">Sky Recoleta · Cochabamba</p>
+        <h1>Tu espacio en el corazón de la ciudad.</h1>
+        <p class="hero-text">Elige el departamento que mejor se adapte a tu viaje, revisa fechas y recibe una cotización clara al instante.</p>
+        <a class="button primary" href="#alojamientos">Ver alojamientos</a>
+      </div>
+      <div class="hero-collage" aria-label="Fotografías de los departamentos">
+        <img src="assets/11f/Sala%201.jpg" alt="Sala luminosa del apartamento Renoir 11F">
+        <img src="assets/7e/Suite%206.jpg" alt="Dormitorio principal del departamento Memories 7E">
+        <div class="hero-note"><strong>2 departamentos</strong><span>Una ubicación privilegiada</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="alojamientos">
+      <div class="section-heading">
+        <div><p class="eyebrow">Elige tu estadía</p><h2>Dos formas de sentirte en casa</h2></div>
+        <p>Ambos alojamientos están en Sky Recoleta, cerca de restaurantes, cafés y los principales puntos del norte de Cochabamba.</p>
+      </div>
+      <div class="property-selector" role="tablist" aria-label="Departamentos"></div>
+    </section>
+
+    <section class="section listing" id="detalles">
+      <div class="listing-heading">
+        <div>
+          <p class="eyebrow property-kicker"></p>
+          <h2 class="property-name"></h2>
+          <p class="property-location">Cochabamba, Bolivia</p>
+        </div>
+        <button class="share-link" type="button" data-action="share">↗ Compartir</button>
+      </div>
+
+      <div class="photo-mosaic" aria-label="Galería del departamento"></div>
+
+      <div class="listing-layout">
+        <div class="listing-content">
+          <div class="fact-line" aria-label="Resumen del alojamiento"></div>
+          <hr>
+          <section class="description-block">
+            <h3>Acerca de este alojamiento</h3>
+            <p class="property-description"></p>
+          </section>
+          <hr>
+          <section>
+            <h3>Lo que ofrece este lugar</h3>
+            <div class="amenities-grid"></div>
+          </section>
+          <hr>
+          <section class="location-card">
+            <div><p class="eyebrow">Recoleta</p><h3>Una ubicación práctica y segura</h3><p>Av. Uyuni y Melchor Urquidi, a pasos del Boulevard, la Recoleta y la Av. Pando.</p></div>
+            <div class="location-orbit" aria-hidden="true"><span>⌖</span></div>
+          </section>
+        </div>
+
+        <aside class="booking-card" id="reservar" aria-label="Cotizador de reserva">
+          <div class="price-lead">
+            <div><strong class="night-price"></strong><span> por noche</span></div>
+            <button type="button" class="currency-quick" data-action="currency-bob">Quiero pagar en Bs</button>
+          </div>
+          <div class="date-fields">
+            <button type="button" class="field-button" data-action="open-calendar" data-date-target="checkin"><small>Llegada</small><strong id="checkin-label">Seleccionar</strong></button>
+            <button type="button" class="field-button" data-action="open-calendar" data-date-target="checkout"><small>Salida</small><strong id="checkout-label">Seleccionar</strong></button>
+          </div>
+          <div class="guest-field">
+            <div><small>Huéspedes</small><strong id="guest-label">2 huéspedes</strong></div>
+            <div class="stepper" aria-label="Cantidad de huéspedes">
+              <button type="button" data-action="guest-minus" aria-label="Quitar huésped">−</button>
+              <span id="guest-count">2</span>
+              <button type="button" data-action="guest-plus" aria-label="Añadir huésped">+</button>
+            </div>
+          </div>
+          <label class="parking-field"><span><small>Garaje</small><strong>Sin costo · sujeto a confirmación</strong></span><input id="parking" type="checkbox"><span class="toggle" aria-hidden="true"></span></label>
+
+          <div class="quote-status" role="status">Selecciona tus fechas para calcular el precio.</div>
+          <div class="discounts" aria-live="polite"></div>
+          <div class="price-breakdown" hidden></div>
+          <div class="action-stack">
+            <a class="button whatsapp disabled" data-action="whatsapp" aria-disabled="true">Reservar por WhatsApp</a>
+            <a class="button airbnb disabled" data-action="airbnb" aria-disabled="true">Reservar por Airbnb</a>
+            <button class="button secondary" type="button" data-action="share">Compartir cotización</button>
+          </div>
+          <p class="booking-note">La cotización y el garaje están sujetos a confirmación. Airbnb verificará nuevamente disponibilidad y precio.</p>
+          <div class="exchange-note" aria-live="polite"></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">⌂</span><span>Bolivia Stays</span></a>
+    <p>Sky Recoleta · Cochabamba, Bolivia</p>
+    <p class="privacy-note">Cotización informativa. La reserva queda confirmada únicamente después de coordinar con el anfitrión o finalizarla en Airbnb.</p>
+  </footer>
+
+  <dialog id="calendar-dialog" class="modal calendar-modal" aria-labelledby="calendar-title">
+    <div class="modal-header"><div><p class="eyebrow">Selecciona fechas</p><h2 id="calendar-title">Tu estadía</h2></div><button type="button" class="icon-button" data-action="close-calendar" aria-label="Cerrar">×</button></div>
+    <p class="calendar-instruction" id="calendar-availability">Elige llegada y salida.</p>
+    <div class="calendar-toolbar"><button type="button" class="icon-button" data-action="calendar-prev" aria-label="Mes anterior">←</button><strong id="calendar-range-label"></strong><button type="button" class="icon-button" data-action="calendar-next" aria-label="Mes siguiente">→</button></div>
+    <div class="calendars"></div>
+    <div class="calendar-footer"><span><i class="legend-dot blocked"></i> No disponible</span><button class="button primary small" type="button" data-action="close-calendar">Listo</button></div>
+  </dialog>
+
+  <dialog id="gallery-dialog" class="modal gallery-modal" aria-labelledby="gallery-title">
+    <div class="modal-header sticky"><div><p class="eyebrow">Galería</p><h2 id="gallery-title"></h2></div><button type="button" class="icon-button" data-action="close-gallery" aria-label="Cerrar">×</button></div>
+    <div class="gallery-grid"></div>
+  </dialog>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

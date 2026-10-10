@@ -15,6 +15,14 @@ Los estilos base están en `styles.css` y los ajustes para huéspedes en `guest.
 - Memories 7E: https://boliviastays.github.io/bolivia-stays-guide/?apartment=7e
 - Renoir’s 11F: https://boliviastays.github.io/bolivia-stays-guide/?apartment=11f
 
+## Reservas y cotizaciones
+
+La página pública para revisar fotografías, seleccionar fechas, calcular precios y reservar está disponible en:
+
+- https://boliviastays.github.io/bolivia-stays-guide/reservar/
+
+La disponibilidad se actualiza desde los calendarios iCal de Airbnb mediante el workflow `update-reservation-data.yml`. Las URL privadas se guardan como secretos de Actions llamados `AIRBNB_ICAL_7E` y `AIRBNB_ICAL_11F`; nunca deben añadirse al repositorio.
+
 El parámetro del enlace tiene prioridad sobre el departamento recordado. La página sin parámetro muestra un selector en la primera visita. El idioma se detecta y recuerda; puede fijarse añadiendo `&lang=es`, `&lang=en` o `&lang=fr`.
 
 Los códigos QR en `qr-7e.svg` y `qr-11f.svg` abren los enlaces correspondientes sin fijar idioma.
