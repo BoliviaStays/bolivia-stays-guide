@@ -7,9 +7,9 @@
   <meta name="description" content="Cotiza tu estadía en Memories 7E o Renoir's 11F, en Sky Recoleta, Cochabamba.">
   <title>Reserva directa · Bolivia Stays</title>
   <link rel="preconnect" href="https://www.airbnb.com.bo">
-  <link rel="stylesheet" href="styles.css?v=price-layout-1">
+  <link rel="stylesheet" href="styles.css?v=i18n-1">
   <script src="properties.js" defer></script>
-  <script src="app.js?v=gallery-links-1" defer></script>
+  <script src="app.js?v=i18n-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Saltar al contenido</a>
@@ -25,9 +25,16 @@
         <a href="#detalles">Detalles</a>
         <a href="#reservar">Cotizar</a>
       </nav>
-      <div class="currency-switcher" role="group" aria-label="Moneda">
-        <button type="button" class="currency-btn is-active" data-currency="USD" aria-pressed="true">USD</button>
-        <button type="button" class="currency-btn" data-currency="BOB" aria-pressed="false">Bs</button>
+      <div class="header-controls">
+        <div class="language-switcher" role="group" aria-label="Idioma">
+          <button type="button" class="language-btn is-active" data-lang="es" aria-pressed="true">ES</button>
+          <button type="button" class="language-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button type="button" class="language-btn" data-lang="pt" aria-pressed="false">PT</button>
+        </div>
+        <div class="currency-switcher" role="group" aria-label="Moneda">
+          <button type="button" class="currency-btn is-active" data-currency="USD" aria-pressed="true">USD</button>
+          <button type="button" class="currency-btn" data-currency="BOB" aria-pressed="false">Bs</button>
+        </div>
       </div>
     </div>
   </header>

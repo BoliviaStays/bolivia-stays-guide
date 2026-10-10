@@ -37,9 +37,10 @@ hr { margin: 36px 0; border: 0; border-top: 1px solid var(--line); }
 .main-nav { display: flex; gap: 6px; padding: 5px; border: 1px solid var(--line); border-radius: 999px; box-shadow: 0 3px 12px rgba(0,0,0,.05); }
 .main-nav a { padding: 7px 13px; border-radius: 999px; text-decoration: none; font-size: .88rem; font-weight: 700; }
 .main-nav a:hover { background: var(--soft); }
-.currency-switcher { justify-self: end; display: flex; padding: 4px; border-radius: 999px; background: var(--soft); }
-.currency-btn { min-width: 46px; height: 36px; padding: 0 11px; border: 0; border-radius: 999px; background: transparent; cursor: pointer; font-size: .82rem; font-weight: 800; }
-.currency-btn.is-active { background: var(--ink); color: white; box-shadow: 0 3px 9px rgba(0,0,0,.16); }
+.header-controls { justify-self: end; display: flex; align-items: center; gap: 8px; }
+.currency-switcher, .language-switcher { display: flex; padding: 4px; border-radius: 999px; background: var(--soft); }
+.currency-btn, .language-btn { min-width: 42px; height: 36px; padding: 0 9px; border: 0; border-radius: 999px; background: transparent; cursor: pointer; font-size: .78rem; font-weight: 800; }
+.currency-btn.is-active, .language-btn.is-active { background: var(--ink); color: white; box-shadow: 0 3px 9px rgba(0,0,0,.16); }
 
 .hero, .section { max-width: 1200px; margin: auto; padding-left: 28px; padding-right: 28px; }
 .hero { min-height: 620px; display: grid; grid-template-columns: .82fr 1.18fr; align-items: center; gap: 54px; padding-top: 56px; padding-bottom: 72px; }
@@ -217,6 +218,9 @@ footer p { margin: 0; color: var(--muted); text-align: right; font-size: .84rem;
 @media (max-width: 480px) {
   h1 { font-size: clamp(2.7rem, 15vw, 4rem); }
   .brand > span:last-child { display: none; }
+  .header-inner { gap: 10px; }
+  .header-controls { gap: 5px; }
+  .currency-btn, .language-btn { min-width: 35px; height: 34px; padding: 0 7px; font-size: .72rem; }
   .hero-collage { min-height: 310px; grid-template-columns: 1.25fr .75fr; }
   .hero-note { padding: 16px; }
   .property-card { grid-template-columns: 105px 1fr; gap: 13px; }
