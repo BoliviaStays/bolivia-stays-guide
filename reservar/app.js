@@ -306,7 +306,7 @@
     const availabilityStatus = document.getElementById("calendar-availability");
     if (state.availability.updatedAt) {
       const synced = new Intl.DateTimeFormat("es-BO", { dateStyle: "medium", timeStyle: "short", timeZone: "America/La_Paz" }).format(new Date(state.availability.updatedAt));
-      availabilityStatus.textContent = `Disponibilidad de Airbnb sincronizada el ${synced}. Las fechas ocupadas aparecen bloqueadas.`;
+      availabilityStatus.textContent = `Disponibilidad de Airbnb sincronizada el ${synced} · Las fechas ocupadas aparecen bloqueadas.`;
       availabilityStatus.classList.remove("is-warning");
     } else {
       availabilityStatus.textContent = "La sincronización con Airbnb aún no está activa. Puedes cotizar fechas, pero confirma la disponibilidad con el anfitrión.";
