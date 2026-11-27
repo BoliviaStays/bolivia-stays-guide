@@ -1,10 +1,10 @@
 {
   "base": "USD",
   "quote": "BOB",
-  "rate": 11.86,
-  "sourceDate": "2026-11-25",
-  "validFrom": "2026-11-25",
+  "rate": 11.85,
+  "sourceDate": "2026-11-26",
+  "validFrom": "2026-11-26",
   "validTo": null,
-  "fetchedAt": "2026-11-27T01:45:40.292Z",
+  "fetchedAt": "2026-11-27T12:31:40.657Z",
   "sourceUrl": "https://www.bcb.gob.bo/bcb_tco_publico_ultima_cotizacion.php"
 }
